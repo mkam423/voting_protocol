@@ -1,0 +1,44 @@
+CPSC 3500 Project #3
+Socket Programming
+
+Group: Mason Kam, Steven Nguyen, Brandon No
+Files included: clientConnection.h, client.cpp, server.cpp, serverFunction.h,
+		Makefile
+
+Description: We split the assignment up into three parts: client, server,
+		and connection. 
+
+		Client: The client portion handles the interface, the setting
+		up of the message to be sent, and handles the received message.
+		Afterward the statistics are displayed for each request 
+		whether bad or good, and in the end for a summary of the
+		history of requests and whether they were valid or not.
+
+		Server: The server handles the message obtained and checks
+		to make sure all the fields are as they should be. Handles
+		good messages and bad messages. Server handles multiple clients
+		through multi-threading and candidate information through a
+		built in hash table (unordered map). Server makes sure to set
+		flag bits for malformed messages. Otherwise, server sends back 
+		message with vote count and cookie # receipt for client.
+
+		Connection: The connection portion handles all socket 
+		connections and translations between server and client.
+		Connection portion handles server name and port # to assure
+		an established link between server and client. Connection is
+		implemented in the form of header files for each server and
+		client so that the server and client file may just call these
+		functions to connect.
+
+Contributions:
+	Mason: Everything client related: client.cpp
+
+	Steven: Everything connection related:
+		clientConnection.h, serverFunction.h
+
+	Bradon: Everything server related: server.cpp
+
+	All of us worked together to assist each other in parts we may have not
+	been too knowledgeable about in our fields. For the most part, we
+	worked together while creating these files and finished up the smaller
+	details by ourselves.

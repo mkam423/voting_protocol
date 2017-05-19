@@ -1,0 +1,21 @@
+OBJ = client.o server.o
+SOURCE1 = clientConnection.h client.cpp
+SOURCE2 = serverFunction.h server.cpp
+SERVER = cs1.seattleu.edu
+PORT = 10080
+CC = g++-4.9
+DEBUG = -g
+CFLAGS =  -Wall -std=c++11 -ltbb -c -Wl,-rpath=/usr/local/gcc481/lib64 $(DEBUG)
+LFLAGS =  -Wall -std=c++11 -ltbb -Wl,-rpath=/usr/local/gcc481/lib64 $(DEBUG)
+
+p3: $(OBJ)
+	$(CC) $(LFLAGS) $(OBJ) -o p3
+
+client.o: $(SOURCE1)
+	$(CC) $(CFLAGS) client.cpp $(SERVER) $(PORT)
+
+server.o: $(SOURCE2)
+	$(CC) $(CFLAGS) server.cpp
+
+clean:
+	\rm *.o *~ p3
